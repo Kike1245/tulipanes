@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramo de Tulipanes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 0;
+        }
+        .hidden {
+            display: none;
+        }
+        .flower-container {
+            position: relative;
+            display: inline-block;
+        }
+        .flower {
+            width: 300px; /* Ajusta el tamaño de los tulipanes según sea necesario */
+            height: auto;
+        }
+        .text-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            background: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        #flowers {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .container {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p>Estos tulipanes son para ti, mi amor</p>
+        <button onclick="showFlowers()">Mostrar ramo</button>
+    </div>
+    <div id="flowers" class="hidden">
+        <!-- Aquí se mostrará la imagen de flores -->
+    </div>
+    <script>
+        function showFlowers() {
+            const flowerContainer = document.getElementById('flowers');
+            flowerContainer.classList.remove('hidden');
+
+            // URL de la imagen de tulipanes
+            const tulipImageUrl = 'https://png.pngtree.com/png-vector/20240811/ourlarge/pngtree-3d-bouquet-of-red-fresh-spring-tulips-png-image_13444434.png';
+
+            // Crear un contenedor para la imagen y el texto
+            const container = document.createElement('div');
+            container.className = 'flower-container';
+
+            // Crear la imagen de tulipanes
+            const img = document.createElement('img');
+            img.src = tulipImageUrl;
+            img.className = 'flower';
+
+            // Crear el texto de superposición
+            const text = document.createElement('div');
+            text.className = 'text-overlay';
+            text.textContent = 'Te quiero mucho, mis lunares bonitos\ncomo te amo chingaos';
+
+            // Agregar la imagen y el texto al contenedor
+            container.appendChild(img);
+            container.appendChild(text);
+
+            // Agregar el contenedor al contenedor de flores
+            flowerContainer.appendChild(container);
+        }
+    </script>
+</body>
+</html>
